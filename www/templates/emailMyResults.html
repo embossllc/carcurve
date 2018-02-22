@@ -1,0 +1,32 @@
+<ion-view title="Email My Results" id="page21">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-ios-paperplane"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="loader">
+      <div class="loading"></div>
+    </div>
+    <div class="headerbg" style="margin-left: -10px; width: calc(100% + 20px);">
+      <img src="img/zQp6Q9a9QOO9sMmhOTV5_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div id="emailMyResults-markdown58" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-size:15px;">Send this report right to your inbox</p>
+    </div>
+    <div class="list card" id="emailMyResults-card28">
+      <form id="emailMyResults-form8" class="list">
+        <label class="item item-input" id="emailMyResults-input12">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="" ng-model="email">
+        </label>
+        <label class="item item-input" id="emailMyResults-input13">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="" ng-model="name">
+        </label>
+        <ion-checkbox id="emailMyResults-checkbox1" ng-model="offers">Email me Deals!</ion-checkbox>
+      </form>
+    </div>
+    <form id="emailMyResults-form7" class="list">
+      <a ui-sref="yourReport()" id="emailMyResults-button31" ng-click="EmailResults([email,name,offers])" class="button button-positive button-large button-block">Email results</a>
+    </form>
+  </ion-content>
+</ion-view>

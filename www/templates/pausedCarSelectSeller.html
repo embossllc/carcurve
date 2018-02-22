@@ -1,0 +1,40 @@
+<ion-view title="Paused - Car Select - Seller" cache-view="false" id="page18">
+  <ion-content padding="true" class="has-header">
+    <div>
+      <img src="img/qaSWLKrlSki5F34VZNDe_car-curve-logo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <div class="loader">
+      <div class="loading"></div>
+    </div>
+    <h4 id="pausedCarSelectSeller-heading18" style="color:#000000;text-align:center;">Search for your car</h4>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <form id="pausedCarSelectSeller-form14" class="list">
+      <label class="item item-select make" id="pausedCarSelectSeller-select13" name="Make">
+        <span class="input-label">Make</span>
+        <select ng-model="makeSelect" ng-options="make as make.name for make in makeList" ng-change="populateModel(makeSelect)"></select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 30px;"></div>
+      <label class="item item-select model" id="pausedCarSelectSeller-select14" name="Model">
+        <span class="input-label">Model</span>
+        <select ng-model="modelSelect" ng-options="model as model.name for model in modelList" ng-change="populateYear(makeSelect, modelSelect)" ng-show="modelList"></select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 30px;"></div>
+      <label class="item item-select year" id="pausedCarSelectSeller-select15" name="year">
+        <span class="input-label">Year</span>
+        <select ng-model="yearSelect" ng-options="year as year.year for year in yearList" ng-change="populateTrim(yearSelect)"></select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 30px;"></div>
+      <label class="item item-select trim" id="pausedCarSelectSeller-select16" name="Trim">
+        <span class="input-label">Trim</span>
+        <select ng-model="trimSelect" ng-options="trim.id as trim.name for trim in trimList"></select>
+      </label>
+    </form>
+    <a ui-sref="loadingPage()" id="pausedCarSelectSeller-button29" ng-click="setVariables(makeSelect, modelSelect, yearSelect, trimSelect)" class="button button-assertive button-block">Ride the Curve!</a>
+    <div>
+      <a style="display:block;" ui-sref="termsAndConditions()">
+        <img src="img/logosize220formathorizontalretinatruecolorblueapi_keyykv5c7452ysyhbhqtgjfpkap" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

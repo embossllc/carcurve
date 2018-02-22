@@ -1,0 +1,40 @@
+<ion-view title="Choose Type" cache-view="false" id="page5">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-model-s"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="loader">
+      <div class="loading"></div>
+    </div>
+    <div class="headerbg" style="margin-left: -10px; width: calc(100% + 20px);">
+      <img src="img/ad3tJ8KgTQmocfmhA3sL_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div id="chooseType-markdown38" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;font-size:15px;">Choose a vehicle type</p>
+    </div>
+    <div class="list card" id="chooseType-card26">
+      <form id="chooseType-form9" class="list">
+        <label class="item item-select year" id="chooseType-select3" name="year">
+          <span class="input-label">Year</span>
+          <select ng-model="yearSelect" ng-options="year for year in yearList" ng-change="populateMake(yearSelect)"></select>
+        </label>
+        <label class="item item-select make" id="chooseType-select1" name="Make">
+          <span class="input-label">Make</span>
+          <select ng-model="makeSelect" ng-options="make for make in makeList" ng-change="populateModel(yearSelect,makeSelect)"></select>
+        </label>
+        <label class="item item-select model" id="chooseType-select2" name="Model">
+          <span class="input-label">Model</span>
+          <select ng-model="modelSelect" ng-options="model for model in modelList" ng-change="populateTrim(yearSelect, makeSelect, modelSelect)" ng-show="modelList"></select>
+        </label>
+        <label class="item item-select trim" id="chooseType-select6" name="Trim">
+          <span class="input-label">Trim</span>
+          <select ng-model="trimSelect" ng-options="trim.id as trim.name for trim in trimList"></select>
+        </label>
+      </form>
+    </div>
+    <div id="chooseType-markdown50" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;font-size:11px;">*FYI: For diesel vehicles, you need to know the model/trim. May not explicitly say, "diesel" in results.</p>
+    </div>
+    <button id="chooseType-button7" ng-click="setVariables(makeSelect, modelSelect, yearSelect, trimSelect)" class="button button-positive button-large button-block">Next</button>
+  </ion-content>
+</ion-view>

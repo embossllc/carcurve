@@ -1,0 +1,62 @@
+<ion-view title="Your Report" hide-back-button="true" cache-view="false" id="page7">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-ios-paper"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="loader">
+      <div class="loading"></div>
+    </div>
+    <div class="headerbg" style="margin-left: -10px; width: calc(100% + 20px);">
+      <img src="img/MtHDNIIOTdGnazSZRFDQ_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="list card" id="yourReport-card25">
+      <ion-item class="item-icon-left balanced sbrtitle" id="yourReport-list-item17">
+        <i class="icon ion-ios-color-wand-outline"></i>CarCurve Predictions</ion-item>
+      <div class="item item-body">
+        <div class="show-list-numbers-and-dots">
+          <p style="margin-top:-4px">
+            <span class="input">{{year}} {{make}} - {{model}}</span>
+          </p>
+        </div>
+      </div>
+      <div style="background-color:#3a80f6; " class="item item-body">
+        <div class="show-list-numbers-and-dots">
+          <p style="color:white; margin-top:-4px">CarCurve Suggest the following:</p>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div class="show-list-numbers-and-dots results">
+
+          <p style="margin-top:-4px">Buy for:
+            <span class="output">{{buyPrice}}</span> @
+            <span class="output">{{buyMiles}}</span> miles</p>
+          <p>- </p>
+          <p>Sell for:
+            <span class="output">{{sellPrice}}</span> @
+            <span class="output">{{sellMiles}}</span> miles</p>
+          <p>-----------------------------------------</p>
+          <p>Your CPM (Cost per Mile):
+            <span class="output">{{CPM}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="creator-container">
+        <span class="error" ng-bind-html="error"></span>
+      </div>
+    </div>
+    <nvd3 options="options" data="data"></nvd3>
+    <a ui-sref="emailMyResults()" id="yourReport-button9" class="button button-positive button-large button-block buttonblu">Email this</a>
+    <div class="list card" id="yourReport-card211">
+      <div class="item item-body" id="yourReport-list-item-container8">
+        <div id="yourReport-markdown57" style="text-align:center;" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">If you had a good experience, please give us "5 Stars" on Google Play. </p>
+        </div>
+      </div>
+      <ion-item class="item-icon-left positive">
+        <i class="icon ion-android-star"></i>Rate us 5 stars!
+        <a href="#" onclick="window.open('market://details?id=carcurve.embosswebworks.com', '_system', 'location=yes'); return false;">Click Here </a>
+      </ion-item>
+    </div>
+    <a ui-sref="welcome()" id="yourReport-button32" ng-click="resetRoot()" class="button button-assertive button-large button-block">Search again</a>
+  </ion-content>
+</ion-view>

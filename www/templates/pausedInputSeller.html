@@ -1,0 +1,76 @@
+<ion-view title="Paused - Input - Seller" cache-view="false" id="page16" style="background-color:#FFFFFF;">
+  <ion-content padding="true" class="has-header">
+    <div>
+      <img src="img/qaSWLKrlSki5F34VZNDe_car-curve-logo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <h4 id="pausedInputSeller-heading16" style="color:#000000;text-align:center;">Input your details below:</h4>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <form id="pausedInputSeller-form11" class="list">
+      <label class="item item-input" id="pausedInputSeller-input10">
+        <span class="input-label">Purchase Price</span>
+        <input type="number" placeholder="example: 23000" ng-model="pPrice">
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-input" id="pausedInputSeller-input9">
+        <span class="input-label">Current Milage</span>
+        <input type="number" placeholder="example: 52000" ng-model="miles">
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="pausedInputSeller-select8">
+        <span class="input-label">Current Condition</span>
+        <select ng-model="con">
+          <option>Outstanding</option>
+          <option>Clean</option>
+          <option>Average</option>
+          <option>Rough</option>
+          <option>Damaged</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="pausedInputSeller-select9">
+        <span class="input-label">Smoker?</span>
+        <select ng-model="smoke">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="pausedInputSeller-select10">
+        <span class="input-label">Pet Owner?</span>
+        <select ng-model="pet">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="pausedInputSeller-select11">
+        <span class="input-label">Rust?</span>
+        <select ng-model="rust">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="pausedInputSeller-select12">
+        <span class="input-label">Number of Owners?</span>
+        <select ng-model="owners">
+          <option>1</option>
+          <option>2-3</option>
+          <option>3+</option>
+          <option>Don't Know</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-input" id="pausedInputSeller-textarea1">
+        <span class="input-label">Additional Info</span><textarea placeholder="upgrades, repairs, additional info..." ng-model="misc"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <a ui-sref="pausedResultsSeller()" id="pausedInputSeller-button30" ng-click="saveSeller([pPrice,con,miles,smoke,pet,rust,owners,misc])" class="button button-positive button-block">Submit</a>
+    </form>
+    <div>
+      <a style="display:block;" ui-sref="termsAndConditions()">
+        <img src="img/logosize220formathorizontalretinatruecolorblueapi_keyykv5c7452ysyhbhqtgjfpkap" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

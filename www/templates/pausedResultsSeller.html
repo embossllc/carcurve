@@ -1,0 +1,48 @@
+<ion-view title="Paused - Results - Seller" cache-view="false" id="page17">
+  <ion-content padding="true" class="has-header">
+    <div>
+      <img src="img/qaSWLKrlSki5F34VZNDe_car-curve-logo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="error ng-binding" ng-bind-html="error"></div>
+    <div class="spacer" style="width: 300px; height: 30px;"></div>
+    <h2 id="pausedResultsSeller-heading25" style="color:#000000;text-align:center;">SELLER REPORT</h2>
+    <div id="pausedResultsSeller-markdown13" class="show-list-numbers-and-dots"></div>
+    <div id="pausedResultsSeller-markdown18" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#919191;font-size:8px;">RESULTS BASED ON APPROX. AND DO NOT INCLUDE OUTLIERS.</p>
+    </div>
+    <h5 id="pausedResultsSeller-heading22" style="color:#000000;">CURRENT</h5>
+    <div style="display:block;" class="creator-container">
+      <p>BASED ON YOUR CRITERIA FOR A
+        <span class="input">{{year}} {{make}} - {{model}}</span> WITH A PURCHASE PRICE OF
+        <span class="input">${{pPrice}}</span> AND MILES OF
+        <span class="input">{{pMiles}}
+        </span>, YOU CURRENTLY HAVE A COST-PER-MILE (CPM) OF
+        <span class="output">${{cCPM}}/ PER MILE</span>.</p>
+    </div>
+    <h5 id="pausedResultsSeller-heading23" style="color:#000000;">SUGGESTED SELL</h5>
+    <div class="creator-container">
+      <p>BASED ON YOUR CRITERIA, WE SUGGEST YOU SELL THIS VEHICLE FOR
+        <span class="output">{{salesPriceM}}</span> AROUND
+        <span class="output">{{milesSale}} MILES</span>.</p>
+    </div>
+    <h5 id="pausedResultsSeller-heading24" style="color:#000000;">TOTAL</h5>
+    <div class="creator-container">BASED ON THE ABOVE SENERIO, YOU WILL HAVE PAID
+      <span class="output">{{totalPriceS}}</span> AND DRIVEN
+      <span class="output">{{totalMilesS}} MILES</span> RESULTING IN THE LOWEST COST-PER-MILE OF
+      <span class="output">${{totalCPMS}}/ PER MILE</span>
+    </div>
+    <div class="creator-container" style="text-align: center; margin: 5px; font-size: 1.3em;">Please rate us 5 stars on google play store.
+      <a href="#" onclick="window.open('https://play.google.com/store/apps/details?id=carcurve.embosswebworks.com&amp;hl=en', '_system', 'location=yes'); return false;">
+        Click Here
+      </a>
+    </div>
+    <a ui-sref="emailMyResults()" id="pausedResultsSeller-button15" class="button button-assertive button-block">Email Me My Results!</a>
+    <a ui-sref="welcome()" id="pausedResultsSeller-button33" ng-click="resetRoot()" class="button button-assertive button-block">Search Again!</a>
+    <div>
+      <a style="display:block;" ui-sref="termsAndConditions()">
+        <img src="img/logosize220formathorizontalretinatruecolorblueapi_keyykv5c7452ysyhbhqtgjfpkap" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </a>
+    </div>
+    <div id="pausedResultsSeller-markdown14" style="text-align:center;" class="show-list-numbers-and-dots"></div>
+  </ion-content>
+</ion-view>
