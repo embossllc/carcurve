@@ -20,12 +20,23 @@ $timeout(hideLoader , 2000);
 
 $scope.setMillage = function(milesB, milesS) {
   console.log(milesB,milesS);
+  if ( typeof milesB === 'string' || milesB instanceof String ) {
     $rootScope.milesB = parseInt(milesB.replace(/[^0-9\.-]+/g,""));
+  } else {
+    $rootScope.milesB = parseInt(milesB);
+  }
+
+  if ( typeof milesS === 'string' || milesS instanceof String ) {
     $rootScope.milesS = parseInt(milesS.replace(/[^0-9\.-]+/g,""));
+  } else {
+    $rootScope.milesS = parseInt(milesS);
+  }
 }
 
-$scope.milesB = '50,000';
-$scope.milesS = '90,000';
+$scope.min = 5000;
+$scope.max = 150000;
+$scope.milesB = 50000;
+$scope.milesS = 90000;
 
 $scope.showMilesB = function(miles) {
     $scope.milesB = miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -116,9 +127,6 @@ function hideLoader() {
 showLoader();
 
 $timeout(hideLoader , 2000);  
-$scope.setOwnder = function(type) {
-    $rootScope.ownerOption = type;
-}
 
 $scope.setPrice = function(priceB,priceS) {
   console.log(priceB,priceS);
@@ -556,16 +564,16 @@ function showPopup() {
         $data.email = $scope.data.email;
         $data.offer = 1;
         
-        $data.make = $rootScope.make.name;
-        $data.model = $rootScope.model.name;
-        $data.year = $rootScope.year.year;
+		
+        $data.make = $rootScope.make;
+        $data.model = $rootScope.model;
+        $data.year = $rootScope.year;
         $data.trimid = $rootScope.trimId;
-        $data.priceB = parseInt($rootScope.buyPrice.replace(/[^0-9\.-]+/g,""));
-        $data.milesB =  parseInt($rootScope.buyMiles.replace(/[^0-9\.-]+/g,""));
-        $data.priceS = parseInt($rootScope.sellPrice.replace(/[^0-9\.-]+/g,""));
-        $data.milesS = parseInt($rootScope.sellMiles.replace(/[^0-9\.-]+/g,""));
+        $data.priceB = parseFloat($rootScope.priceB);
+        $data.milesB =  parseInt($rootScope.milesB);
+        $data.priceS = parseFloat($rootScope.priceS);
+        $data.milesS = parseInt($rootScope.milesS);
         $data.cpm = $rootScope.CPM;
-        $data.type = $rootScope.userType;
         
         if ($rootScope.userType == 'A') {
             $data.send = 'yes';
@@ -590,16 +598,15 @@ function showPopup() {
     } else { 
         var $header = {'Content-Type' : 'x-www-form-urlencoded'};
         var $data = {};
-        $data.make = $rootScope.make.name;
-        $data.model = $rootScope.model.name;
-        $data.year = $rootScope.year.year;
+        $data.make = $rootScope.make;
+        $data.model = $rootScope.model;
+        $data.year = $rootScope.year;
         $data.trimid = $rootScope.trimId;
-        $data.priceB = parseInt($rootScope.buyPrice.replace(/[^0-9\.-]+/g,""));
-        $data.milesB =  parseInt($rootScope.buyMiles.replace(/[^0-9\.-]+/g,""));
-        $data.priceS = parseInt($rootScope.sellPrice.replace(/[^0-9\.-]+/g,""));
-        $data.milesS = parseInt($rootScope.sellMiles.replace(/[^0-9\.-]+/g,""));
+        $data.priceB = parseFloat($rootScope.priceB);
+        $data.milesB =  parseInt($rootScope.milesB);
+        $data.priceS = parseFloat($rootScope.priceS);
+        $data.milesS = parseInt($rootScope.milesS);
         $data.cpm = $rootScope.CPM;
-        $data.type = $rootScope.userType;
         
         $http({
           method: 'POST',
@@ -622,18 +629,15 @@ function showPopup() {
  }
 
 $scope.resetRoot = function () {
-    delete $rootScope.make.name;
-    delete $rootScope.model.name;
-    delete $rootScope.year.year;
-    delete $rootScope.trimId;
-    delete $rootScope.mileOption;
-    delete $rootScope.ownerOption;
-    delete $rootScope.userType;
-    delete $rootScope.buyPrice;
-    delete $rootScope.buyMiles;
-    delete $rootScope.sellPrice;
-    delete $rootScope.sellMiles;
-    delete $rootScope.Q_id;
+	delete $rootScope.make;
+	delete $rootScope.model;
+	delete $rootScope.year;
+	delete $rootScope.trimId;
+	delete $rootScope.priceB;
+	delete $rootScope.milesB;
+	delete $rootScope.priceS;
+	delete $rootScope.milesS;
+	delete $rootScope.CPM;
 }
 
 function invalidPrice() {
@@ -708,6 +712,7 @@ if ( milesB >= milesS ) {
 }
 
 $scope.CPM = CPM.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " dollars/mile";
+$rootScope.CPM = CPM.toFixed(2);
 
 /*
 var clientURL = 'https://api.edmunds.com';
@@ -798,12 +803,15 @@ function ($scope, $rootScope, $stateParams, $http, $sce) {
 var CPM = {};
 
 $scope.resetRoot = function () {
-    delete $rootScope.type;
-    delete $rootScope.make.name;
-    delete $rootScope.model.name;
-    delete $rootScope.year.year;
-    delete $rootScope.ownerOption;
-    delete $rootScope.seller
+	delete $rootScope.make;
+	delete $rootScope.model;
+	delete $rootScope.year;
+	delete $rootScope.trimId;
+	delete $rootScope.priceB;
+	delete $rootScope.milesB;
+	delete $rootScope.priceS;
+	delete $rootScope.milesS;
+	delete $rootScope.CPM;
 }
 
 function invalidPrice() {

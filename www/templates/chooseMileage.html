@@ -18,7 +18,7 @@
     </div>
     <form id="chooseMileage-form16" class="list">
       <ion-item class="range range-positive sliderbar" id="chooseMileage-range3">
-        <input type="range" value="50000" min="5000" max="100000" step="5000" ng-change="showMilesB(milesB)" ng-model="milesB">
+        <input type="range" ng-min="{{min}}" ng-max="{{max}}" step="5000" ng-change="showMilesB(milesB)" ng-model="milesB">
       </ion-item>
     </form>
     <div class="creator-container" style="text-align:center;">
@@ -26,7 +26,7 @@
     </div>
     <form id="chooseMileage-form17" class="list">
       <ion-item class="range range-positive sliderbar" id="chooseMileage-range3">
-        <input type="range" value="90000" min="5000" max="150000" step="5000" ng-change="showMilesS(milesS)" ng-model="milesS">
+        <input type="range" ng-min="{{min}}" ng-max="{{max}}" step="5000" ng-change="showMilesS(milesS)" ng-model="milesS">
       </ion-item>
     </form>
     <a ui-sref="choosePrice()" id="chooseMileage-button14" ng-click="setMillage(milesB,milesS)" class="button button-positive button-large button-block new">Next</a>

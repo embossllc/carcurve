@@ -10,16 +10,18 @@
       <img src="img/lLwYzvKdSv2GMe1y0UcO_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
       <form id="choosePrice-form17" class="list">
-      <label class="item item-input" id="choosePrice-input1">
+      <label id="choosePrice-input1" stacked>
         <span class="input-label">Input Prefered Purchase Price</span>
-        <input type="number" placeholder="example: 52000" ng-model="priceB">
       </label>
-      </ion-item>
-      <label class="item item-input" id="choosePrice-input2">
+      <span class="item item-input">
+        <input type="number" placeholder="example: 52000" ng-model="priceB" ></input>
+      </span>
+      <label id="choosePrice-input2">
         <span class="input-label">Input Prefered Selling Price</span>
-        <input type="number" placeholder="example: 2000" ng-model="priceS">
       </label>
-      </ion-item>
+      <span class="item item-input">
+        <input type="number" placeholder="example: 52000" ng-model="priceS" ></input>
+      </span>
     </form>
     <div class="spacer" style="width: 300px; height: 17px;"></div>
     <a ui-sref="yourReport()" id="chooseMileage-button14" ng-click="setPrice(priceB,priceS)" class="button button-positive button-large button-block new">Next</a>
