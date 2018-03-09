@@ -1,4 +1,4 @@
-<ion-view title="Choose Selling/Retiring" cache-view="false" id="page14">
+<ion-view title="Selling/Retiring Info" cache-view="false" id="page14">
   <ion-nav-buttons side="left" class="has-header">
     <button class="button button-icon icon ion-cash"></button>
   </ion-nav-buttons>
@@ -10,11 +10,19 @@
       <img src="img/zs1cuC0oSfGLNFxjwGI6_used-car-values-car-quote.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
     <div id="setSelling-markdown32" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="margin-top:0px;color:#000000;font-size:15px;">Choose your selling/retiring mileage & price</p>
+      <p style="margin-top:0px;color:#000000;font-size:15px;">Input your Selling/Retiring Price & Milage</p>
     </div>
     <div class="spacer" style="width: 300px; height: 19px;"></div>
+    <form id="setSelling-form17" class="list">
+      <label id="setSelling-input1" stacked>
+        <span class="input-label">What's the selling/retiring price?</span>
+      </label>
+      <span class="item item-input">
+        <input type="number" placeholder="example: 52000" ng-model="priceS" ></input>
+      </span>
+    </form>
     <div class="creator-container" style="text-align:center;">
-      <h2>Selling/Retiring {{milesS}} miles</h2>
+      <h2>What's your selling/retiring mileage? {{milesS}} miles</h2>
     </div>
     <form id="setSelling-form16" class="list">
       <ion-item class="range range-positive sliderbar" id="chooseMileage-range3">
@@ -23,14 +31,7 @@
         <i class="icon ion-chevron-right"></i>
       </ion-item>
     </form>
-    <form id="setSelling-form17" class="list">
-      <label id="setSelling-input1" stacked>
-        <span class="input-label">Input Prefered Selling/Retiring Price</span>
-      </label>
-      <span class="item item-input">
-        <input type="number" placeholder="example: 52000" ng-model="priceS" ></input>
-      </span>
-    </form>
+    <div class="spacer" style="width: 300px; height: 17px;"></div>
     <a id="chooseMileage-button14" ng-click="setSellingvars(milesS,priceS)" class="button button-positive button-large button-block new">Next</a>
   </ion-content>
 </ion-view>

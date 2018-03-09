@@ -763,12 +763,17 @@ var milesS = parseInt($rootScope.milesS);
 
 $timeout(showPopup , 7000);
 
+
+var actualPrice = priceB-priceS;
+var actualMiles = milesS-milesB
 var CPM = (priceB-priceS)/(milesS-milesB);
 
 $scope.buyPrice = "$" + priceB.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 $scope.buyMiles = milesB.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 $scope.sellPrice = "$" + priceS.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 $scope.sellMiles = milesS.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+$scope.actualPrice = "$" + actualPrice.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+$scope.actualMiles = actualMiles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 if ( priceB == 0 ) {
   $scope.CPM = 'Pruchasing Price must be over $0';
@@ -782,6 +787,14 @@ if ( milesB >= milesS ) {
 
 $scope.CPM = CPM.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " dollars/mile";
 $rootScope.CPM = CPM.toFixed(2);
+
+if ( CPM < 0.8 ) {
+  $scope.value = 'good';
+} else if ( CPM < 1.1 ) {
+  $scope.value = 'ok';
+} else {
+  $scope.value = 'bad';
+}
 
 /*
 var clientURL = 'https://api.edmunds.com';

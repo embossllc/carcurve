@@ -1,4 +1,4 @@
-<ion-view title="Choose Purchasing" cache-view="false" id="page9">
+<ion-view title="Purchase Info" cache-view="false" id="page9">
   <ion-nav-buttons side="left" class="has-header">
     <button class="button button-icon icon ion-cash"></button>
   </ion-nav-buttons>
@@ -10,11 +10,19 @@
       <img src="img/lLwYzvKdSv2GMe1y0UcO_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
     <div id="setSelling-markdown32" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="margin-top:0px;color:#000000;font-size:15px;">Choose your starting/purchasing buying mileage & price</p>
+      <p style="margin-top:0px;color:#000000;font-size:15px;">Input your Purchase Price & Milage</p>
     </div>
     <div class="spacer" style="width: 300px; height: 19px;"></div>
+    <form id="setBuying-form17" class="list">
+      <label id="setBuying-input2">
+        <span class="input-label">What's the purchase price?</span>
+      </label>
+      <span class="item item-input">
+        <input type="number" placeholder="example: 52000" ng-model="priceB" ></input>
+      </span>
+    </form>
     <div class="creator-container" style="text-align:center;">
-      <h2>Purchase {{milesB}} miles</h2>
+      <h2>What's your purchase mileage? {{milesB}} miles</h2>
     </div>
     <form id="setBuying-form16" class="list">
       <ion-item class="range range-positive sliderbar" id="chooseMileage-range3">
@@ -22,14 +30,6 @@
         <input type="range" ng-min="{{min}}" ng-max="{{max}}" step="5000" ng-change="showMilesB(milesB)" ng-model="milesB">
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-    </form>
-    <form id="setBuying-form17" class="list">
-      <label id="setBuying-input2">
-        <span class="input-label">Input Prefered Purchase Price</span>
-      </label>
-      <span class="item item-input">
-        <input type="number" placeholder="example: 52000" ng-model="priceB" ></input>
-      </span>
     </form>
     <div class="spacer" style="width: 300px; height: 17px;"></div>
     <a  id="setBuying-button14" ng-click="setBuyingvars(milesB,priceB)" class="button button-positive button-large button-block new">Next</a>

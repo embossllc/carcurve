@@ -9815,6 +9815,18 @@ a.button {
 .output-list {
   list-style: none; }
 
+.good {
+  color: #4caf50;
+}
+
+.ok {
+  color: #bed00d;
+}
+
+.bad {
+  color: #f44336;
+}
+
 .loader {
   display: none;
   background: white;
