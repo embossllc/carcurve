@@ -1,36 +1,56 @@
 angular.module('app.controllers', [])
   
-.controller('chooseMileageCtrl', ['$scope', '$rootScope', '$stateParams', '$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('setBuyingCtrl', ['$scope', '$rootScope', '$stateParams', '$timeout','$ionicPopup','$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $rootScope, $stateParams, $timeout) {
+function ($scope, $rootScope, $stateParams, $timeout,$ionicPopup,$state) {
 function showLoader() {
     jQuery('.loader').show();
-    console.log('show loader millage');
 }
 
 function hideLoader() {
     jQuery('.loader').hide();
-    console.log('hide loader millage');
 }
 
 showLoader();
 
 $timeout(hideLoader , 2000);
 
-$scope.setMillage = function(milesB, milesS) {
-  console.log(milesB,milesS);
+$scope.setBuyingvars = function(milesB, priceB) {
+  console.log(milesB,priceB);
+
+  if ( priceB == null || priceB == 0) {
+    var myPopup = $ionicPopup.alert({
+    title: 'Missing Info',
+    template: 'Please enter a price above $0.',
+    buttons: [
+      { 
+        text: 'X', 
+        onTap: function(e) {
+          return 'cancel'
+        }  
+      },
+      {
+        text: 'OK',
+        type: 'button-positive',
+        onTap: function(e) {
+            return 'success';
+          }
+        }
+     ]
+    });
+    return;
+  }
+
   if ( typeof milesB === 'string' || milesB instanceof String ) {
     $rootScope.milesB = parseInt(milesB.replace(/[^0-9\.-]+/g,""));
   } else {
     $rootScope.milesB = parseInt(milesB);
   }
 
-  if ( typeof milesS === 'string' || milesS instanceof String ) {
-    $rootScope.milesS = parseInt(milesS.replace(/[^0-9\.-]+/g,""));
-  } else {
-    $rootScope.milesS = parseInt(milesS);
-  }
+  $rootScope.priceB = priceB.toString();
+
+  $state.go('setSelling');
 }
 
 $scope.min = 5000;
@@ -40,10 +60,6 @@ $scope.milesS = 90000;
 
 $scope.showMilesB = function(miles) {
     $scope.milesB = miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-$scope.showMilesS = function(miles) {
-    $scope.milesS = miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 }])
@@ -112,10 +128,10 @@ $scope.saveSeller = function(values) {
 
 }])
    
-.controller('choosePriceCtrl', ['$scope', '$rootScope', '$stateParams', '$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('setSellingCtrl', ['$scope', '$rootScope', '$stateParams', '$timeout','$ionicPopup','$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $rootScope, $stateParams, $timeout) {
+function ($scope, $rootScope, $stateParams, $timeout,$ionicPopup,$state) {
 function showLoader() {
     jQuery('.loader').show();
 }
@@ -124,14 +140,64 @@ function hideLoader() {
     jQuery('.loader').hide();
 }
 
+$scope.min = 5000;
+$scope.max = 150000;
+$scope.milesB = 50000;
+$scope.milesS = 90000;
+
+$scope.showMilesS = function(miles) {
+  $scope.milesS = miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 showLoader();
 
 $timeout(hideLoader , 2000);  
 
-$scope.setPrice = function(priceB,priceS) {
-  console.log(priceB,priceS);
-    $rootScope.priceB = priceB.toString();
-    $rootScope.priceS = priceS.toString();
+$scope.setSellingvars = function(milesS,priceS) {
+  console.log(milesS,priceS);
+  var milesB = $rootScope.milesB;
+  var errortxt = '';
+
+  if ( typeof milesS === 'string' || milesS instanceof String ) {
+    milesS = parseInt(milesS.replace(/[^0-9\.-]+/g,""));
+  } else {
+    milesS = parseInt(milesS);
+  }
+
+  if ( milesS < milesB) {
+    errortxt = 'Please enter milage above '+ milesB.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'.';
+  }
+
+  if ( priceS == null ) {
+    priceS = 0;
+  }
+
+  if ( errortxt ) {
+        var myPopup = $ionicPopup.alert({
+         title: 'Error with Submission',
+         template: errortxt,
+         buttons: [
+          { 
+            text: 'X', 
+            onTap: function(e) {
+              return 'cancel'
+            }  
+          },
+          {
+            text: 'OK',
+            type: 'button-positive',
+            onTap: function(e) {
+                return 'success';
+              }
+            }
+         ]
+        });
+        return;
+    }
+  
+  $rootScope.milesS = milesS
+  $rootScope.priceS = priceS.toString();
+  $state.go('loadingPage');
 }
 
 }])
@@ -169,7 +235,9 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  var d = new Date();
+  var n = d.getFullYear();
+  $scope.cyear = n;  
 
 }])
    
@@ -368,6 +436,7 @@ $scope.setVariables = function(make, model, year, trimId) {
     $rootScope.model = model;
     $rootScope.year = year;
     $rootScope.trimId = trimId;
+    console.log($rootScope.type, $rootScope.make, $rootScope.model, $rootScope.year);
     /*
     $scope.makeList = [];
     $scope.modelList = [];
@@ -375,7 +444,7 @@ $scope.setVariables = function(make, model, year, trimId) {
     $scope.trimList = [];
     */
     
-    $state.go('chooseMileage');
+    $state.go('setBuying');
 }
 
 }])
@@ -521,7 +590,7 @@ function showPopup() {
           message = 'Join our community and get alerted if we find you a great deal!';
           break;
       default:
-          message = 'Join our community and get unique car reports & information.';
+          message = 'Email this report to myself or somewhere else.';
           break;
   }
 
@@ -692,7 +761,7 @@ var milesB = parseInt($rootScope.milesB);
 var priceS = parseFloat($rootScope.priceS);
 var milesS = parseInt($rootScope.milesS);
 
-console.log(priceB,milesB,priceS,milesS);
+$timeout(showPopup , 7000);
 
 var CPM = (priceB-priceS)/(milesS-milesB);
 
@@ -1117,13 +1186,15 @@ particlesJS('particles-js',
 $scope.loading_text = $sce.trustAsHtml('Searching CarCurve...');
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Learning when to buy & sell...');}, 3000);
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('This data is deep...');}, 4000);
-//$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Eureka! A result!');}, 6000);
+$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Eureka! A result!');}, 6000);
 
 $timeout(function() {
     if ( $rootScope.type == 'buy' ) {
         $state.go('yourReport');
     } else if ( $rootScope.type == 'sell' ) {
         $state.go('pausedResultsSeller');
+    } else {
+      $state.go('yourReport');
     }
 }, 10000);
 
@@ -1143,18 +1214,17 @@ $scope.EmailResults = function(value) {
     $data.name = value[1];
     $data.offer = (value[2] ? value[2] : 0);
     
-    $data.make = $rootScope.make.name;
-    $data.model = $rootScope.model.name;
-    $data.year = $rootScope.year.year;
+    $data.make = $rootScope.make;
+    $data.model = $rootScope.model;
+    $data.year = $rootScope.year;
     $data.trimid = $rootScope.trimId;
-    $data.priceB = parseInt($rootScope.buyPrice.replace(/[^0-9\.-]+/g,""));
-    $data.milesB =  parseInt($rootScope.buyMiles.replace(/[^0-9\.-]+/g,""));
-    $data.priceS = parseInt($rootScope.sellPrice.replace(/[^0-9\.-]+/g,""));
-    $data.milesS = parseInt($rootScope.sellMiles.replace(/[^0-9\.-]+/g,""));
+    $data.priceB = parseFloat($rootScope.priceB);
+    $data.milesB =  parseInt($rootScope.milesB);
+    $data.priceS = parseFloat($rootScope.priceS);
+    $data.milesS = parseInt($rootScope.milesS);
     $data.cpm = $rootScope.CPM;
-    $data.type = $rootScope.userType;
-    $data.send = 'yes';
     $data.Q_id = $rootScope.Q_id;
+    $data.send = 'yes';
     
     
     $http({
@@ -1172,7 +1242,18 @@ $scope.EmailResults = function(value) {
         // or server returns response with an error status.
         console.log('error');
       });
-}
+
+      delete $rootScope.make;
+      delete $rootScope.model;
+      delete $rootScope.year;
+      delete $rootScope.trimId;
+      delete $rootScope.priceB;
+      delete $rootScope.milesB;
+      delete $rootScope.priceS;
+      delete $rootScope.milesS;
+      delete $rootScope.CPM;
+      delete $rootScope.Q_id;
+    }
 
 }
     ])

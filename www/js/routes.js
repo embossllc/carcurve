@@ -9,10 +9,10 @@ angular.module('app.routes', [])
   $stateProvider
     
 
-      .state('chooseMileage', {
-    url: '/mileage',
-    templateUrl: 'templates/chooseMileage.html',
-    controller: 'chooseMileageCtrl'
+      .state('setBuying', {
+    url: '/buying',
+    templateUrl: 'templates/setBuying.html',
+    controller: 'setBuyingCtrl'
   })
 
   .state('chooseReason', {
@@ -39,10 +39,10 @@ angular.module('app.routes', [])
     controller: 'pausedInputSellerCtrl'
   })
 
-  .state('choosePrice', {
-    url: '/source-buyer',
-    templateUrl: 'templates/choosePrice.html',
-    controller: 'choosePriceCtrl'
+  .state('setSelling', {
+    url: '/selling',
+    templateUrl: 'templates/setSelling.html',
+    controller: 'setSellingCtrl'
   })
 
   .state('pausedSourceSeller', {
