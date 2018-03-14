@@ -788,12 +788,27 @@ if ( milesB >= milesS ) {
 $scope.CPM = CPM.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " dollars/mile";
 $rootScope.CPM = CPM.toFixed(2);
 
-if ( CPM < 0.8 ) {
+if ( CPM < 0.99 ) {
+  $scope.face = 'fa-smile good'
+  $scope.upper_txt = 'Good deal, Low CPM!';
   $scope.value = 'good';
-} else if ( CPM < 1.1 ) {
+  $scope.value_bg = 'good-bg';
+  $scope.value_txt = 'Your CPM (cost-per-mile) is Low.  You are getting the most out of your vehicle.';
+  $scope.sugg = 'You have a good deal going! But you can always do better though... Purchase for less with less milage or drive longer and sell for more. Get the most of every mile!';
+} else if ( CPM < 2 ) {
+  $scope.face = 'fa-meh ok';
+  $scope.upper_txt = ' Not Bad, Average CPM.';
   $scope.value = 'ok';
+  $scope.value_bg = 'ok-bg';
+  $scope.value_txt = 'Your CPM (cost-per-mile) is Fair.  You could get more out of our vehicle. See below';
+  $scope.sugg = 'For a better deal, buy for less with less milage or drive longer and sell for more. Get the most of every mile!';
 } else {
+  $scope.face = 'fa-frown bad';
+  $scope.upper_txt =  'Bad break, High CPM...';
   $scope.value = 'bad';
+  $scope.value_bg = 'bad-bg';
+  $scope.value_txt = 'Your CPM (cost-per-mile) is Fair. See below.';
+  $scope.sugg = 'You could be driving a truck, new or exotic vehicle but it could be a bad deal! You need to buy for less with less milage or drive longer and sell for more. Get the most of every mile!';
 }
 
 /*
@@ -1196,10 +1211,10 @@ particlesJS('particles-js',
 
 );
 
-$scope.loading_text = $sce.trustAsHtml('Searching CarCurve...');
+$scope.loading_text = $sce.trustAsHtml('Thinking...');
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Learning when to buy & sell...');}, 3000);
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('This data is deep...');}, 4000);
-$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Eureka! A result!');}, 6000);
+//$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Eureka! A result!');}, 6000);
 
 $timeout(function() {
     if ( $rootScope.type == 'buy' ) {

@@ -9,22 +9,22 @@
     <div class="headerbg" style="margin-left: -10px; width: calc(100% + 20px);">
       <img src="img/zs1cuC0oSfGLNFxjwGI6_used-car-values-car-quote.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
-    <div id="setSelling-markdown32" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="margin-top:0px;color:#000000;font-size:15px;">Input your Selling/Retiring Price & Milage</p>
-    </div>
     <div class="spacer" style="width: 300px; height: 19px;"></div>
     <form id="setSelling-form17" class="list">
       <label id="setSelling-input1" stacked>
-        <span class="input-label">What's the selling/retiring price?</span>
+        <span class="input-label">What's the selling<i class="icon ion-ios-information"></i> price?</span>
       </label>
       <span class="item item-input">
         <input type="number" placeholder="example: 52000" ng-model="priceS" ></input>
       </span>
     </form>
-    <div class="creator-container" style="text-align:center;">
-      <h2>What's your selling/retiring mileage? {{milesS}} miles</h2>
-    </div>
     <form id="setSelling-form16" class="list">
+      <label id="setSelling-input1" stacked>
+        <span class="input-label">What's your selling<i class="icon ion-ios-information"></i> mileage?</span>
+      </label>
+      <div class="creator-container" style="text-align:center;">
+        <h2>{{milesS}} miles</h2>
+      </div>
       <ion-item class="range range-positive sliderbar" id="chooseMileage-range3">
         <i class="icon ion-chevron-left"></i>
         <input type="range" ng-min="{{min}}" ng-max="{{max}}" step="5000" ng-change="showMilesS(milesS)" ng-model="milesS">

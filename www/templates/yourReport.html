@@ -10,18 +10,9 @@
       <img src="img/MtHDNIIOTdGnazSZRFDQ_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
     <div class="list card" id="yourReport-card25">
-      <ion-item class="item-icon-left balanced sbrtitle" id="yourReport-list-item17">
-        <i class="icon ion-ios-color-wand-outline"></i>CarCurve Predictions</ion-item>
-      <div class="item item-body">
-        <div class="show-list-numbers-and-dots">
-          <p style="margin-top:-4px">
-            <span class="input">{{year}} {{make}} - {{model}}</span>
-          </p>
-        </div>
-      </div>
       <div style="background-color:#3a80f6; " class="item item-body">
         <div class="show-list-numbers-and-dots">
-          <p style="color:white; margin-top:-4px">CarCurve Suggest the following:</p>
+          <p style="color:white; margin-top:-4px">CarCurve Resutls for {{year}} {{make}} - {{model}}: <i class="fas {{face}}"></i> {{upper_txt}}</p>
         </div>
       </div>
       <div class="item item-body">
@@ -35,13 +26,33 @@
             <span class="output">{{sellPrice}}</span> @
             <span class="output">{{sellMiles}}</span> miles</p>
           <p>-----------------------------------------</p>
-          <p>Acutal Costs:
-            <span class="output">{{actualPrice}}</span> @
+          <p>True Cost:
+            <span class="output">{{actualPrice}}</span> for
             <span class="output">{{actualMiles}}</span> miles</p>
-          <p>Your CPM (Cost per Mile):
+          <p>CPM (Cost per Mile):
             <span class="output {{value}}">{{CPM}}</span>
           </p>
-          <p>*An average CPM is around $1 dollar per mile driven.</p>
+        </div>
+      </div>
+      <div class="item item-body {{value_bg}} ">
+        <div class="show-list-numbers-and-dots">
+          <p style="color:white; margin-top:-4px; text-align: center;">{{value_txt}}</p>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div class="show-list-numbers-and-dots results">
+          <p>{{sugg}}</p>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div class="show-list-numbers-and-dots">
+          <h2>What is CPM (Cost-Per-Mile)?</h2>
+          <p>Your CPM is the "Price" divided by the "Milage". We do not include, maintenance, repairs, insurance ect...only the principal cost and miles driven. To get the best auto deal, remember these principals; Know when to buy & sell, Sell for more, Buy for less or drive it until it dies.</p>
+          <ul>
+            <li>Low: CPM between $.01 - $.99/per mile</li>
+            <li>Average: $1.00 - $1.99/per mile</li>
+            <li>High: $2.00 + /per mile</li>
+          </ul>
         </div>
       </div>
       <div class="creator-container">

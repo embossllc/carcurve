@@ -10,6 +10,7 @@
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
+
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=2.0.1");
@@ -9819,12 +9820,24 @@ a.button {
   color: #4caf50;
 }
 
+.good-bg {
+  background-color: #4caf50;
+}
+
 .ok {
   color: #bed00d;
 }
 
+.ok-bg {
+  background-color: #bed00d;
+}
+
 .bad {
-  color: #f44336;
+  color: #ef473a;
+}
+
+.bad-bg {
+  background-color: #ef473a;
 }
 
 .loader {
