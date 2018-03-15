@@ -9,12 +9,10 @@
     <div class="headerbg" style="margin-left: -10px; width: calc(100% + 20px);">
       <img src="img/MtHDNIIOTdGnazSZRFDQ_used-car-values-car-quote2.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
+    <div class="show-list-numbers-and-dots {{value}}">
+      <p class="{{value}}" style="font-size:20px;"><i class="fas {{face}}"></i> {{upper_txt}}</p>
+    </div>
     <div class="list card" id="yourReport-card25">
-      <div class="item item-body">
-        <div class="show-list-numbers-and-dots {{value}}">
-          <p class="{{value}}" style="font-size:20px;"><i class="fas {{face}}"></i> {{upper_txt}}</p>
-        </div>
-      </div>
       <div style="background-color:#3a80f6; " class="item item-body">
         <div class="show-list-numbers-and-dots">
           <p style="color:white; margin-top:-4px">CarCurve Results: {{year}} {{make}} - {{model}}</p>
@@ -49,28 +47,10 @@
           <p>{{sugg}}</p>
         </div>
       </div>
-      <div class="item item-body">
-        <div class="show-list-numbers-and-dots">
-          <h2>What is CPM (Cost-Per-Mile)?</h2>
-          <p>Your CPM is the "Price" divided by the "Mileage". We do not include, maintenance, repairs, insurance, inflation ect...only the principal cost and miles driven</p>
-          <div class="spacer" style="width: 300px; height: 10px;"></div> 
-          <h2>How do I find out my Sales Price or Sales Milage?</h2>
-          <p>Start by doing some research to get an estimate.</p>
-          <ul>
-            <li>Search the internet for your vehicle's year, make, model & trim.</li> 
-            <li>Find a similar vehicle for sale at the mileage you would like to sell at.</li> 
-            <li>Find an average price of 3-4 similar vehicles.</li> 
-            <li>Determine how many years you will drive the vehicle by dividing your approx. total mileage by 15000 (average annual driving milage is 15k miles).</li> 
-            <li>If you want to get a better estimate, tack on additional expenses and depreciation.</li> 
-            <li>Use CarCurve to get quick results!</li> 
-          </ul>
-        </div>
-      </div>
       <div class="creator-container">
         <span class="error" ng-bind-html="error"></span>
       </div>
     </div>
-    <nvd3 options="options" data="data"></nvd3>
     <a ui-sref="emailMyResults()" id="yourReport-button9" class="button button-positive button-large button-block buttonblu">Email this</a>
     <div class="list card" id="yourReport-card211">
       <div class="item item-body" id="yourReport-list-item-container8">
@@ -84,5 +64,24 @@
       </ion-item>
     </div>
     <a ui-sref="welcome()" id="yourReport-button32" ng-click="resetRoot()" class="button button-assertive button-large button-block">Search again</a>
+    <div class="list card" id="yourReport-card26">
+      <div class="item item-body">
+        <div class="show-list-numbers-and-dots">
+          <h2>What is CPM (Cost-Per-Mile)?</h2>
+          <p>Your CPM is the "Price" divided by the "Mileage". We do not include, maintenance, repairs, insurance, inflation ect...only the principal cost and miles driven.</p>
+          <div class="spacer" style="width: 300px; height: 10px;"></div> 
+          <h2>How do I find out my Sales Price or Sales Milage?</h2>
+          <p>Start by doing some research to get an estimate.</p>
+          <ul>
+            <li>Search the internet for your vehicle's year, make, model & trim.</li> 
+            <li>Find a similar vehicle for sale at the mileage you would like to sell at.</li> 
+            <li>Find an average price of 3-4 similar vehicles.</li> 
+            <li>Determine how many years you will drive the vehicle by dividing your approx. total mileage by 15000 (average annual driving milage is 15k miles).</li> 
+            <li>If you want to get a better estimate, tack on additional expenses and depreciation.</li> 
+            <li>Use CarCurve to get quick results!</li> 
+          </ul>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

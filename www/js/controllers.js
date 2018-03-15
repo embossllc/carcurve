@@ -16,6 +16,52 @@ showLoader();
 
 $timeout(hideLoader , 2000);
 
+$scope.expPrice = function() {
+   var myPopup = $ionicPopup.alert({
+         title: 'Whats the Buying price?',
+         template: "If you don't know, that okay. Simply, input a rough estimate. If you purchase it well below market price, input what you actually paid.",
+         buttons: [
+          { 
+            text: 'X', 
+            onTap: function(e) {
+              return 'cancel'
+            }  
+          },
+          {
+            text: 'OK',
+            type: 'button-positive',
+            onTap: function(e) {
+                return 'success';
+              }
+            }
+         ]
+        });
+        return;
+} 
+
+$scope.expMiles = function() {
+  var myPopup = $ionicPopup.alert({
+         title: 'Whats your Buying mileage?',
+         template: "If you don't know, that okay. Simply, input an rough estimate.",
+         buttons: [
+          { 
+            text: 'X', 
+            onTap: function(e) {
+              return 'cancel'
+            }  
+          },
+          {
+            text: 'OK',
+            type: 'button-positive',
+            onTap: function(e) {
+                return 'success';
+              }
+            }
+         ]
+        });
+        return;
+}
+
 $scope.setBuyingvars = function(milesB, priceB) {
   console.log(milesB,priceB);
 
@@ -642,7 +688,7 @@ function showPopup() {
 
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
-    template: '<input type="email" ng-model="data.email">',
+    template: '<input type="email" ng-model="data.email" placeholder="yourname@email.com">',
     title: 'Email me this Information',
     scope: $scope,
     buttons: [
@@ -653,7 +699,7 @@ function showPopup() {
         }  
       },
       {
-        text: '<b>Yes Please!</b>',
+        text: '<b>Submit</b>',
         type: 'button-positive',
         onTap: function(e) {
           if (!$scope.data.email) {
@@ -806,7 +852,7 @@ var milesB = parseInt($rootScope.milesB);
 var priceS = parseFloat($rootScope.priceS);
 var milesS = parseInt($rootScope.milesS);
 
-$timeout(showPopup , 7000);
+$timeout(showPopup , 21000);
 
 
 var actualPrice = priceB-priceS;
@@ -852,7 +898,7 @@ if ( CPM < 0.10 ) {
   $scope.upper_txt =  'Bad break, High CPM...';
   $scope.value = 'bad';
   $scope.value_bg = 'bad-bg';
-  $scope.value_txt = 'Your CPM (cost-per-mile) is Fair. See below.';
+  $scope.value_txt = 'Your CPM (cost-per-mile) is Poor. See below.';
   $scope.sugg = 'You could be driving a truck, new or exotic vehicle but it could be a bad deal! You need to buy for less with less milage or drive longer and sell for more. Get the most of every mile!';
 }
 
