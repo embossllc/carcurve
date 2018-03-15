@@ -151,7 +151,53 @@ $scope.showMilesS = function(miles) {
 
 showLoader();
 
-$timeout(hideLoader , 2000);  
+$timeout(hideLoader , 2000);
+
+$scope.expPrice = function() {
+   var myPopup = $ionicPopup.alert({
+         title: 'Whats the Selling price?',
+         template: "If you don't know, that okay. Simply, input what you would like to get out of your vehicle (even if its only $1). We'll help you get a more accurate price on the results page.",
+         buttons: [
+          { 
+            text: 'X', 
+            onTap: function(e) {
+              return 'cancel'
+            }  
+          },
+          {
+            text: 'OK',
+            type: 'button-positive',
+            onTap: function(e) {
+                return 'success';
+              }
+            }
+         ]
+        });
+        return;
+} 
+
+$scope.expMiles = function() {
+  var myPopup = $ionicPopup.alert({
+         title: 'Whats the Selling mileage?',
+         template: "If you don't know, that's okay. Simply, input what mileage you would want to sell at or when you will retire the vehicle (ex: 150000) . We'll help you get a more accurate mileage on the results page.",
+         buttons: [
+          { 
+            text: 'X', 
+            onTap: function(e) {
+              return 'cancel'
+            }  
+          },
+          {
+            text: 'OK',
+            type: 'button-positive',
+            onTap: function(e) {
+                return 'success';
+              }
+            }
+         ]
+        });
+        return;
+} 
 
 $scope.setSellingvars = function(milesS,priceS) {
   console.log(milesS,priceS);
@@ -597,8 +643,7 @@ function showPopup() {
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
     template: '<input type="email" ng-model="data.email">',
-    title: 'Sign up!',
-    subTitle: message,
+    title: 'Email me this Information',
     scope: $scope,
     buttons: [
       { 
@@ -788,14 +833,14 @@ if ( milesB >= milesS ) {
 $scope.CPM = CPM.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " dollars/mile";
 $rootScope.CPM = CPM.toFixed(2);
 
-if ( CPM < 0.99 ) {
+if ( CPM < 0.10 ) {
   $scope.face = 'fa-smile good'
   $scope.upper_txt = 'Good deal, Low CPM!';
   $scope.value = 'good';
   $scope.value_bg = 'good-bg';
   $scope.value_txt = 'Your CPM (cost-per-mile) is Low.  You are getting the most out of your vehicle.';
   $scope.sugg = 'You have a good deal going! But you can always do better though... Purchase for less with less milage or drive longer and sell for more. Get the most of every mile!';
-} else if ( CPM < 2 ) {
+} else if ( CPM < 0.49 ) {
   $scope.face = 'fa-meh ok';
   $scope.upper_txt = ' Not Bad, Average CPM.';
   $scope.value = 'ok';
@@ -1211,7 +1256,7 @@ particlesJS('particles-js',
 
 );
 
-$scope.loading_text = $sce.trustAsHtml('Thinking...');
+$scope.loading_text = $sce.trustAsHtml('Calculating...');
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Learning when to buy & sell...');}, 3000);
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('This data is deep...');}, 4000);
 //$timeout(function() { $scope.loading_text = $sce.trustAsHtml('Eureka! A result!');}, 6000);

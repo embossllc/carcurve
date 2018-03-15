@@ -9816,8 +9816,14 @@ a.button {
 .output-list {
   list-style: none; }
 
+#info-1, #info-2 {
+  margin-left: 5px;
+  background: transparent;
+  border: none;
+}
+
 .good {
-  color: #4caf50;
+  color: #4caf50!important;
 }
 
 .good-bg {
@@ -9825,7 +9831,7 @@ a.button {
 }
 
 .ok {
-  color: #bed00d;
+  color: #bed00d!important;
 }
 
 .ok-bg {
@@ -9833,7 +9839,7 @@ a.button {
 }
 
 .bad {
-  color: #ef473a;
+  color: #ef473a!important;
 }
 
 .bad-bg {
