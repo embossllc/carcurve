@@ -18,7 +18,6 @@ $timeout(hideLoader , 2000);
 
 $scope.expPrice = function() {
    var myPopup = $ionicPopup.alert({
-         title: 'Whats the Buying price?',
          template: "If you don't know, that okay. Simply, input a rough estimate. If you purchase it well below market price, input what you actually paid.",
          buttons: [
           { 
@@ -41,7 +40,6 @@ $scope.expPrice = function() {
 
 $scope.expMiles = function() {
   var myPopup = $ionicPopup.alert({
-         title: 'Whats your Buying mileage?',
          template: "If you don't know, that okay. Simply, input an rough estimate.",
          buttons: [
           { 
@@ -99,8 +97,8 @@ $scope.setBuyingvars = function(milesB, priceB) {
   $state.go('setSelling');
 }
 
-$scope.min = 5000;
-$scope.max = 150000;
+$scope.min = 0;
+$scope.max = 300000;
 $scope.milesB = 50000;
 $scope.milesS = 90000;
 
@@ -186,8 +184,8 @@ function hideLoader() {
     jQuery('.loader').hide();
 }
 
-$scope.min = 5000;
-$scope.max = 150000;
+$scope.min = 0;
+$scope.max = 300000;
 $scope.milesB = 50000;
 $scope.milesS = 90000;
 
@@ -201,7 +199,6 @@ $timeout(hideLoader , 2000);
 
 $scope.expPrice = function() {
    var myPopup = $ionicPopup.alert({
-         title: 'Whats the Selling price?',
          template: "If you don't know, that okay. Simply, input what you would like to get out of your vehicle (even if its only $1). We'll help you get a more accurate price on the results page.",
          buttons: [
           { 
@@ -224,7 +221,6 @@ $scope.expPrice = function() {
 
 $scope.expMiles = function() {
   var myPopup = $ionicPopup.alert({
-         title: 'Whats the Selling mileage?',
          template: "If you don't know, that's okay. Simply, input what mileage you would want to sell at or when you will retire the vehicle (ex: 150000) . We'll help you get a more accurate mileage on the results page.",
          buttons: [
           { 
@@ -722,7 +718,6 @@ function showPopup() {
         var $header = {'Content-Type' : 'x-www-form-urlencoded'};
         var $data = {};
         $data.email = $scope.data.email;
-        $data.offer = 1;
         
 		
         $data.make = $rootScope.make;
@@ -734,10 +729,7 @@ function showPopup() {
         $data.priceS = parseFloat($rootScope.priceS);
         $data.milesS = parseInt($rootScope.milesS);
         $data.cpm = $rootScope.CPM;
-        
-        if ($rootScope.userType == 'A') {
-            $data.send = 'yes';
-        }
+        $data.send = 'yes';
         
         $http({
           method: 'POST',
@@ -749,6 +741,25 @@ function showPopup() {
             // when the response is available
             console.log('success');
             console.log(response);
+            var myPopup = $ionicPopup.show({
+                title: 'Sucess!',
+                scope: $scope,
+                buttons: [
+                  { 
+                    text: 'X', 
+                    onTap: function(e) {
+                      return 'cancel'
+                    }  
+                  },
+                  {
+                    text: '<b>Ok</b>',
+                    type: 'button-positive',
+                    onTap: function(e) {
+                      return 'success';
+                    }
+                  }
+                ]
+              });
             $rootScope.Q_id = response.data;
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
