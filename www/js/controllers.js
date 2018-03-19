@@ -18,7 +18,7 @@ $timeout(hideLoader , 2000);
 
 $scope.expPrice = function() {
    var myPopup = $ionicPopup.alert({
-         template: "If you don't know, that okay. Simply, input a rough estimate. If you purchase it well below market price, input what you actually paid.",
+         template: "If you don't know, that's okay. Simply, input a rough estimate. If you purchase it well below market price, input what you actually paid.",
          buttons: [
           { 
             text: 'X', 
@@ -40,7 +40,7 @@ $scope.expPrice = function() {
 
 $scope.expMiles = function() {
   var myPopup = $ionicPopup.alert({
-         template: "If you don't know, that okay. Simply, input an rough estimate.",
+         template: "If you don't know, that's okay. Simply, input an rough estimate.",
          buttons: [
           { 
             text: 'X', 
@@ -199,7 +199,7 @@ $timeout(hideLoader , 2000);
 
 $scope.expPrice = function() {
    var myPopup = $ionicPopup.alert({
-         template: "If you don't know, that okay. Simply, input what you would like to get out of your vehicle (even if its only $1). We'll help you get a more accurate price on the results page.",
+         template: "If you don't know, that's okay. Simply, input what you would like to get out of your vehicle (even if its only $1). We'll help you get a more accurate price on the results page.",
          buttons: [
           { 
             text: 'X', 
