@@ -319,13 +319,24 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('welcomeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('welcomeCtrl', ['$scope', '$stateParams', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, $rootScope) {
   var d = new Date();
   var n = d.getFullYear();
-  $scope.cyear = n;  
+  $scope.cyear = n;
+
+  delete $rootScope.make;
+  delete $rootScope.model;
+  delete $rootScope.year;
+  delete $rootScope.trimId;
+  delete $rootScope.priceB;
+  delete $rootScope.milesB;
+  delete $rootScope.priceS;
+  delete $rootScope.milesS;
+  delete $rootScope.CPM;
+  delete $rootScope.Q_id;  
 
 }])
    
@@ -777,6 +788,37 @@ if ( CPM < 0.10 ) {
   $scope.value_txt = 'Your CPM (cost-per-mile) is Poor. See below.';
   $scope.sugg = 'You could be driving a truck, new or exotic vehicle but it could be a bad deal! You need to buy for less with less milage or drive longer and sell for more. Get the most of every mile!';
 }
+
+var $header = {'Content-Type' : 'x-www-form-urlencoded'};
+var $data = {}
+
+$data.make = $rootScope.make;
+$data.model = $rootScope.model;
+$data.year = $rootScope.year;
+$data.trimid = $rootScope.trimId;
+$data.priceB = parseFloat($rootScope.priceB);
+$data.milesB =  parseInt($rootScope.milesB);
+$data.priceS = parseFloat($rootScope.priceS);
+$data.milesS = parseInt($rootScope.milesS);
+$data.cpm = $rootScope.CPM;
+$data.send = 'no';
+
+
+$http({
+  method: 'POST',
+  url: 'https://carcurve.co/emailR.php',
+  headers: $header, 
+  data: $data
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+    console.log('success');
+    console.log(response);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log('error');
+  });
 
 }])
    
